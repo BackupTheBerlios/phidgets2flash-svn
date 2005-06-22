@@ -1,0 +1,1585 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GroupLab.Phidgets</name>
+    </assembly>
+    <members>
+        <member name="T:GroupLab.Phidgets.EventArgsCache">
+            <summary>
+            Provides a circular buffer of cached event argument classes to improve performance by reducing garbage collector workload.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.EventArgsCache.#ctor(System.Type,System.Int32)">
+            <summary>
+            Initializes this cache with the specified number of empty event argument objects of the specified type.
+            </summary>
+            <param name="type"></param>
+            <param name="count"></param>
+        </member>
+        <member name="M:GroupLab.Phidgets.EventArgsCache.Next">
+            <summary>
+            Gets the next event argument class from this cache.
+            </summary>
+            <returns>Event arguments object.</returns>
+        </member>
+        <member name="T:GroupLab.Phidgets.InterfaceKit">
+            <summary>
+            Provides a component for a Phidget Interface Kit device.  The Phidget Interface Kit devices provide a combination of Digital Outputs, Digital Inputs and Analog Inputs.  With this component, the programmer can: turn particular outputs on and off; get notified of changes of state of the inputs as events; configure events to fire when the analog inputs change;
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.IPhidgetComponent">
+            <summary>
+            Interface for a component class that can wrap a phidget device.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.IPhidgetComponent.GetSkinType">
+            <summary>
+            Gets a reference the type of a Windows Forms control class that implements a visual representation for this phidget.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:GroupLab.Phidgets.IPhidgetComponent.PhidgetDevice">
+            <summary>
+            Gets/sets a reference to the wrapped phidget device.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.IPhidgetComponent.Attached">
+            <summary>
+            Gets a flag that is true when this phidget component has been associated with a phidget device and that device is still attached to the computer.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.InterfaceKit.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Initializes this interface kit component not associated with any phidget device, and adds it to the given component container.
+            </summary>
+            <param name="container">Container in which to add this component.</param>
+        </member>
+        <member name="M:GroupLab.Phidgets.InterfaceKit.#ctor">
+            <summary>
+            Initializes this interface kit component not associated with any phidget device.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.InterfaceKit.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.InterfaceKit.GetSkinType">
+            <summary>
+            Implements <see cref="M:GroupLab.Phidgets.IPhidgetComponent.GetSkinType"/>
+            </summary>
+            <returns>Type of InterfaceKitSkin.</returns>
+        </member>
+        <member name="M:GroupLab.Phidgets.InterfaceKit.OnAttach(System.EventArgs)">
+            <summary>
+            Raises the Attach event.
+            </summary>
+            <param name="e">Arguments for the Attach event.</param>
+        </member>
+        <member name="M:GroupLab.Phidgets.InterfaceKit.OnDetach(System.EventArgs)">
+            <summary>
+            Raises the Detach event.
+            </summary>
+            <param name="e">Arguments for the Detach event.</param>
+        </member>
+        <member name="M:GroupLab.Phidgets.InterfaceKit.OnInputChange(GroupLab.Phidgets.InterfaceKitEventArgs)">
+            <summary>
+            Raises the InputChange event.
+            </summary>
+            <param name="e">Arguments for the InputChange event.</param>
+        </member>
+        <member name="M:GroupLab.Phidgets.InterfaceKit.OnOutputChange(GroupLab.Phidgets.InterfaceKitEventArgs)">
+            <summary>
+            Raises the OutputChange event.
+            </summary>
+            <param name="e">Arguments for the OutputChange event.</param>
+        </member>
+        <member name="M:GroupLab.Phidgets.InterfaceKit.OnSensorChange(GroupLab.Phidgets.InterfaceKitEventArgs)">
+            <summary>
+            Raises the SensorChange event.
+            </summary>
+            <param name="e">Arguments for the SensorChange event.</param>
+        </member>
+        <member name="M:GroupLab.Phidgets.InterfaceKit.OnError(GroupLab.Phidgets.PhidgetErrorEventArgs)">
+            <summary>
+            Raises the <see cref="E:GroupLab.Phidgets.InterfaceKit.Error"/> event.
+            </summary>
+            <param name="e">Arguments for the event.</param>
+        </member>
+        <member name="P:GroupLab.Phidgets.InterfaceKit.PhidgetDevice">
+            <summary>
+            Gets/sets the wrapped phidget device.
+            </summary>
+            <remarks>The phidget device kind must be <c>phidgetinterfacekit</c>.</remarks>
+        </member>
+        <member name="P:GroupLab.Phidgets.InterfaceKit.Attached">
+            <summary>
+            Gets a flag that when true indicates this phidget component has been associated with an underlying phidget device and that the device is attached to this computer.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.InterfaceKit.Outputs">
+            <summary>
+            Gets the collection of <see cref="T:GroupLab.Phidgets.InterfaceKit.DigitalOutput"/>'s available on this interface kit.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.InterfaceKit.Inputs">
+            <summary>
+            Gets the collection of <see cref="T:GroupLab.Phidgets.InterfaceKit.DigitalInput"/>'s available on this interface kit.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.InterfaceKit.Sensors">
+            <summary>
+            Gets the collection of <see cref="T:GroupLab.Phidgets.InterfaceKit.AnalogSensor"/>'s available on this interface kit.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.InterfaceKit.AutoAttach">
+            <summary>
+            Gets/sets a value that determines whether that the current interface kit component should automatically attach to an appropriate phidget device.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.InterfaceKit.FilterSerialNumbers">
+            <summary>
+            Gets/sets the device serial numbers that are accepted by this interface kit component.  If this list is empty the interface kit component will accept all device serial numbers.
+            </summary>
+        </member>
+        <member name="E:GroupLab.Phidgets.InterfaceKit.Attach">
+            <summary>
+            Occurs when this component has been associated with a phidget device.
+            </summary>
+        </member>
+        <member name="E:GroupLab.Phidgets.InterfaceKit.Detach">
+            <summary>
+            Occurs when the phidget device associated with this component has been detached from this computer.
+            </summary>
+        </member>
+        <member name="E:GroupLab.Phidgets.InterfaceKit.InputChange">
+            <summary>
+            Occurs when a digital input value changes.  The index of the particular digital input is returned, as well as the state of the input: True is On, False is Off.  In the case of a switch (button) implementation, True would correspond to when the switch is pressed.
+            </summary>
+        </member>
+        <member name="E:GroupLab.Phidgets.InterfaceKit.OutputChange">
+            <summary>
+            Occurs when a digital output value changes.  The index of the particular output is returned, as well as the state of the output: True is On, False is Off.  In the case of an LED implementation, True would correspond to the LED being turned on. 
+            </summary>
+        </member>
+        <member name="E:GroupLab.Phidgets.InterfaceKit.SensorChange">
+            <summary>
+            This event is triggered when an analog sensor's value is changed from the last reading by plus or minus the Sensitivity value. The index of the particular sensor is returned, as well as the sensor's value. By default, this value is a number between between 0 and 1000. However, different sensors may return values within a subset of that range i.e., there is no guarantee that the minimum or maximum value returned by a sensor is 0 or 1000. 
+            </summary>
+        </member>
+        <member name="E:GroupLab.Phidgets.InterfaceKit.Error">
+            <summary>
+            Occurs when there is a USB protocol error communicating with the phidget device.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.Interop._IPhidgetInterfaceKitEvents">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop._IPhidgetInterfaceKitEvents.OnDetach">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop._IPhidgetInterfaceKitEvents.OnError(System.String,System.Int32)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop._IPhidgetInterfaceKitEvents.OnInputChange(System.Int32,System.Boolean)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop._IPhidgetInterfaceKitEvents.OnOutputChange(System.Int32,System.Boolean)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop._IPhidgetInterfaceKitEvents.OnSensorChange(System.Int32,System.Int32)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.InterfaceKit.DigitalOutput">
+            <summary>
+            Represents a digital output on an interface kit.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.InterfaceKit.DigitalOutput.Index">
+            <summary>
+            Gets the index of this digital output.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.InterfaceKit.DigitalOutput.State">
+            <summary>
+            Gets/sets the state of this digital output.  In the case of an LED, True is on and False is off.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.InterfaceKit.DigitalOutputCollection">
+            <summary>
+            Represents a collection of digital outputs.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.InterfaceKit.DigitalOutputCollection.Item(System.Int32)">
+            <summary>
+            Gets a digital output.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.InterfaceKit.DigitalInput">
+            <summary>
+            Represents a digital input on an interface kit.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.InterfaceKit.DigitalInput.Index">
+            <summary>
+            Gets the index of this input.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.InterfaceKit.DigitalInput.State">
+            <summary>
+            Gets the current state of this input.  In the case of a switch or button which is normally open, True would correspond to when the switch is pressed.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.InterfaceKit.DigitalInputCollection">
+            <summary>
+            Represents a collection of digital inputs on an interface kit.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.InterfaceKit.DigitalInputCollection.Item(System.Int32)">
+            <summary>
+            Gets a digital input.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.InterfaceKit.AnalogSensor">
+            <summary>
+            Represents an analog sensor on an interface kit.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.InterfaceKit.AnalogSensor.Index">
+            <summary>
+            Gets the index of this sensor.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.InterfaceKit.AnalogSensor.RawValue">
+            <summary>
+            Returns the un-normalized value of the sensor between 0 - 1000.  This is directly proportional to the Analog Input, ranging from 0-5V.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.InterfaceKit.AnalogSensor.NormalizeMinimum">
+            <summary>
+            Gets/sets the lower bound on the sensor normalization range.  This is usually 0, but if one sets it to a larger value e.g., 200, then the scale is adjusted so that the real range of 200 - 1000 are normalized to 0 - 1000. Actual readings less tahn this number are always reported as 0.  There must be at lease a difference of 1 between this property and NormalizeMaximum
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.InterfaceKit.AnalogSensor.NormalizeMaximum">
+            <summary>
+            Gets/sets the upper bound on the sensor normalization range.  This is usually 1000, but if one sets it to a smaller value e.g., 700, then the scale is adjusted so that the real range of 0 - 700 are normalized to 0 - 1000. Actual readings greater than this number are always reported as 1000.  There must be at lease a difference of 1 between this property and NormalizeMinimum
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.InterfaceKit.AnalogSensor.Sensitivity">
+            <summary>
+            Gets/sets the threshold (minimum difference between successive normalized sensor readings) for raising <see cref="E:GroupLab.Phidgets.InterfaceKit.SensorChange"/> events.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.InterfaceKit.AnalogSensor.Value">
+            <summary>
+            Returns the digital value being detected, converted to fit between 0-1000. The raw values within the range of  NormalizeMaximum and NormalizeMinimum are normalized to 0 - 1000.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.InterfaceKit.AnalogSensorCollection">
+            <summary>
+            Represents a collection of analog sensors on an interface kit.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.InterfaceKit.AnalogSensorCollection.Item(System.Int32)">
+            <summary>
+            Gets a sensor.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.InterfaceKitEventArgs">
+            <summary>
+            Provides data associated with an interface kit phidget event.
+            </summary>
+        </member>
+        <member name="F:GroupLab.Phidgets.InterfaceKitEventArgs.Index">
+            <summary>
+            The digital input, analog sensor, or digital output that raised the event.
+            </summary>
+        </member>
+        <member name="F:GroupLab.Phidgets.InterfaceKitEventArgs.State">
+            <summary>
+            The new state of the digital input or digital output.  This field's value is valid only for <see cref="E:GroupLab.Phidgets.InterfaceKit.InputChange"/> and <see cref="E:GroupLab.Phidgets.InterfaceKit.OutputChange"/> events.
+            </summary>
+        </member>
+        <member name="F:GroupLab.Phidgets.InterfaceKitEventArgs.Value">
+            <summary>
+            The new value of the analog sensor.  This field's value is valid only for <see cref="E:GroupLab.Phidgets.InterfaceKit.SensorChange"/> events.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.InterfaceKitEventArgs.#ctor">
+            <summary>
+            Initializes this object with empty field values.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.InterfaceKitEventHandler">
+            <summary>
+            Represents a method that can handle events raised by an interface kit phidget.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.InterfaceKitSkin">
+            <summary>
+            Provides a visual representation for interface kit phidgets.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.IPhidgetComponentSkin">
+            <summary>
+            Represents a visual representation for a phidget component.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.IPhidgetComponentSkin.PhidgetComponent">
+            <summary>
+            Gets/sets the phidget component to skin.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.InterfaceKitSkin.#ctor">
+            <summary>
+            Initializes an unattached interface kit phidget skin.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.InterfaceKitSkin.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.InterfaceKitSkin.PhidgetComponent">
+            <summary>
+            Implements <see cref="P:GroupLab.Phidgets.IPhidgetComponentSkin.PhidgetComponent"/>
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.InterfaceKitSkin.InterfaceKit">
+            <summary>
+            Gets/sets the interface kit phidget component to skin.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.Interop.IPhidget">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidget.get_DeviceType">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidget.get_SerialNumber">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidget.get_Tag">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidget.set_Tag(System.Object)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidget.get_IsAttached">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidget.get_DeviceVersion">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidget.OnAttach(GroupLab.Phidgets.Interop.IPhidgetManager,System.IntPtr,System.IntPtr,System.Int32,System.Int32,System.Int32,System.Int16,System.Int16)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidget.OnDetach">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidget.OnPacket(System.Int32,System.Byte[])">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.Interop.IPhidgetManager">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetManager.get__NewEnum">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetManager.get_Item(System.Int32)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetManager.set_Item(System.Int32,GroupLab.Phidgets.Interop.IPhidget)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetManager.get_Count">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.Interop._IPhidgetManagerEvents">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop._IPhidgetManagerEvents.OnAttach(GroupLab.Phidgets.Interop.IPhidget)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop._IPhidgetManagerEvents.OnDetach(GroupLab.Phidgets.Interop.IPhidget)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop._IPhidgetManagerEvents.OnError(GroupLab.Phidgets.Interop.IPhidget,System.String,System.Int32)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.Interop.PhidgetManager">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.Interop.IPhidgetInterfaceKit">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetInterfaceKit.get_DeviceType">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetInterfaceKit.get_SerialNumber">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetInterfaceKit.get_Tag">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetInterfaceKit.set_Tag(System.Object)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetInterfaceKit.get_IsAttached">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetInterfaceKit.get_DeviceVersion">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetInterfaceKit.OnAttach(GroupLab.Phidgets.Interop.IPhidgetManager,System.IntPtr,System.IntPtr,System.Int32,System.Int32,System.Int32,System.Int16,System.Int16)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetInterfaceKit.OnDetach">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetInterfaceKit.OnPacket(System.Int32,System.Byte[])">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetInterfaceKit.get_OutputState(System.Int32)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetInterfaceKit.set_OutputState(System.Int32,System.Boolean)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetInterfaceKit.get_NumOutputs">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetInterfaceKit.get_NumInputs">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetInterfaceKit.get_InputState(System.Int32)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetInterfaceKit.get_NumSensors">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetInterfaceKit.get_RawSensorValue(System.Int32)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetInterfaceKit.get_SensorNormalizeMinimum(System.Int32)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetInterfaceKit.set_SensorNormalizeMinimum(System.Int32,System.Int32)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetInterfaceKit.get_SensorNormalizeMaximum(System.Int32)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetInterfaceKit.set_SensorNormalizeMaximum(System.Int32,System.Int32)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetInterfaceKit.get_SensorChangeTrigger(System.Int32)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetInterfaceKit.set_SensorChangeTrigger(System.Int32,System.Int32)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetInterfaceKit.get_SensorValue(System.Int32)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.Interop.IPhidgetServo">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetServo.get_DeviceType">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetServo.get_SerialNumber">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetServo.get_Tag">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetServo.set_Tag(System.Object)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetServo.get_IsAttached">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetServo.get_DeviceVersion">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetServo.OnAttach(GroupLab.Phidgets.Interop.IPhidgetManager,System.IntPtr,System.IntPtr,System.Int32,System.Int32,System.Int32,System.Int16,System.Int16)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetServo.OnDetach">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetServo.OnPacket(System.Int32,System.Byte[])">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetServo.get_MotorPosition(System.Int32)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetServo.set_MotorPosition(System.Int32,System.Single)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetServo.get_NumMotors">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:GroupLab.Phidgets.Interop._IPhidgetServoEvents">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop._IPhidgetServoEvents.OnPositionChanged(System.Int32,System.Single)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop._IPhidgetServoEvents.OnDetach">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop._IPhidgetServoEvents.OnError(System.String,System.Int32)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.Interop.IPhidgetRFID">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetRFID.get_DeviceType">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetRFID.get_SerialNumber">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetRFID.get_Tag">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetRFID.set_Tag(System.Object)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetRFID.get_IsAttached">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetRFID.get_DeviceVersion">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetRFID.OnAttach(GroupLab.Phidgets.Interop.IPhidgetManager,System.IntPtr,System.IntPtr,System.Int32,System.Int32,System.Int32,System.Int16,System.Int16)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetRFID.OnDetach">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetRFID.OnPacket(System.Int32,System.Byte[])">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.Interop._IPhidgetRFIDEvents">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop._IPhidgetRFIDEvents.OnTag(System.Int32,System.String)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+            
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop._IPhidgetRFIDEvents.OnDetach">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop._IPhidgetRFIDEvents.OnError(System.String,System.Int32)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.Interop.IPhidgetTextLCD">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetTextLCD.get_DeviceType">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetTextLCD.get_SerialNumber">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetTextLCD.get_Tag">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetTextLCD.set_Tag(System.Object)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetTextLCD.get_IsAttached">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetTextLCD.get_DeviceVersion">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetTextLCD.OnAttach(GroupLab.Phidgets.Interop.IPhidgetManager,System.IntPtr,System.IntPtr,System.Int32,System.Int32,System.Int32,System.Int16,System.Int16)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetTextLCD.OnDetach">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetTextLCD.OnPacket(System.Int32,System.Byte[])">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetTextLCD.set_DisplayString(System.Int32,System.String)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetTextLCD.get_NumRows">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetTextLCD.get_NumColumns">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetTextLCD.get_Backlight">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetTextLCD.set_Backlight(System.Boolean)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetTextLCD.get_CursorOn">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetTextLCD.set_CursorOn(System.Boolean)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetTextLCD.get_CursorBlink">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop.IPhidgetTextLCD.set_CursorBlink(System.Boolean)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:GroupLab.Phidgets.Interop._IPhidgetTextLCDEvents">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop._IPhidgetTextLCDEvents.OnDetach">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Interop._IPhidgetTextLCDEvents.OnError(System.String,System.Int32)">
+            <summary>
+            This member supports the GroupLab.Phidgets runtime and is not meant to be used directly from your code.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.PhidgetDevice">
+            <summary>
+            Provides a component wrapper for a phidget device.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.PhidgetDevice.#ctor(GroupLab.Phidgets.Interop.IPhidget)">
+            <summary>
+            Initializes this component with the given COM object.
+            </summary>
+            <param name="comObject">phidget device COM object</param>
+        </member>
+        <member name="M:GroupLab.Phidgets.PhidgetDevice.GetComponentType(System.String)">
+            <summary>
+            Gets the type of component that handles the given kind of phidget device.
+            </summary>
+            <param name="deviceKind">A string representing the kind of phidget device, e.g., phidgetinterfacekit.</param>
+            <returns>The type of the component class that handles the given kind of phidget device.</returns>
+            <exception cref="T:System.ArgumentException">Unknown phidget device kind.</exception>
+        </member>
+        <member name="M:GroupLab.Phidgets.PhidgetDevice.GetSkinType(System.String)">
+            <summary>
+            Gets the type of a Windows Forms control that will provide a visual representation of the given kind of phidget device.
+            </summary>
+            <param name="deviceKind">A string representing the kind of phidget device, e.g., phidgetinterfacekit.</param>
+            <returns>The type of the control class that skins the given kind of phidget device.</returns>
+            <exception cref="T:System.ArgumentException">Unknown phidget device kind.</exception>
+        </member>
+        <member name="P:GroupLab.Phidgets.PhidgetDevice.ComObject">
+            <summary>
+            Gets the underlying COM object for this phidget device.  This member supports the GroupLab.Phidgets runtime and is not meant to be used in your code directly.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.PhidgetDevice.Kind">
+            <summary>
+            Gets a string describing the kind of device for this phidget, e.g., PhidgetInterfaceKit.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.PhidgetDevice.Version">
+            <summary>
+            Gets the firmware version of this phidget.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.PhidgetDevice.SerialNumber">
+            <summary>
+            Gets the firmware serial number of this phidget, which can be used to differentiate among several phidgets of the same kind.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.PhidgetDevice.Attached">
+            <summary>
+            Gets a flag that, when true, indicates this phidget is still attached to this computer.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.PhidgetErrorEventArgs">
+            <summary>
+            Provides data describing a phidget device error.
+            </summary>
+        </member>
+        <member name="F:GroupLab.Phidgets.PhidgetErrorEventArgs.PhidgetDevice">
+            <summary>
+            Gets a reference to the phidget device that caused the error.
+            </summary>
+        </member>
+        <member name="F:GroupLab.Phidgets.PhidgetErrorEventArgs.Description">
+            <summary>
+            Gets a human-readable text description of the error.
+            </summary>
+        </member>
+        <member name="F:GroupLab.Phidgets.PhidgetErrorEventArgs.SCODE">
+            <summary>
+            Gets the underlying OS error code that describes the error.
+            0x20000001: Device is not being maintained by the Phidget Manager.  This error will occur after the USB Phidget has been detached and the API continues to send commands.  Not serious;
+            0x20000002: Attempt to write to the Phidget failed.  This error can occur after the USB Phidget is detached and before the Phidget Manager has noticed.  It is not unusual to get several of these errors when a device is detached. Not serious; 
+            0x20000003: Attempt to read the Phidget failed.  This error can occur when the device is read after it is detached but before the Phidget Manager noticed.  It is not unusual to get several of these errors when a device is detached. Not serious;  
+            </summary>
+        </member>
+        <member name="F:GroupLab.Phidgets.PhidgetErrorEventArgs.ThrownException">
+            <summary>
+            Gets the .NET exception that would be thrown for this error.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.PhidgetErrorEventArgs.#ctor(GroupLab.Phidgets.PhidgetDevice,System.String,System.Int32)">
+            <summary>
+            Initializes this object with the given error information.
+            </summary>
+            <param name="phidgetDevice">Phidget device that caused the error.</param>
+            <param name="description">Human-readable text description of the error.</param>
+            <param name="scode">OS error code for the error.</param>
+        </member>
+        <member name="T:GroupLab.Phidgets.PhidgetErrorEventHandler">
+            <summary>
+            Represents a method that can handle a phidget device error event.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.PhidgetManager">
+            <summary>
+            The PhidgetManager provides a centralized mechanism for managing one or more Phidget USB devices. 
+            The PhidgetManager will notify an application through the <see cref="E:GroupLab.Phidgets.PhidgetManager.Attach"/> event when new phidget devices are seen by the system (e.g., when a device is plugged in).  
+            When a phidget device is detached (e.g. by unplugging it) or otherwise lost to the system, the Detach event will fire.  Note for previous Phidget Programmers:  Each .NET Phidget Component has an instance to this static phidget manager and so you no longer need to use the PhidgetManager Attach event to hookup phidget devices.  If you would like to revert to the old functionality set AutoAttach to false on your phidget components.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.PhidgetManager.#ctor">
+            <summary>
+            Initializes a new PhidgetManager component instance.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.PhidgetManager.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Initializes a new PhidgetManager component instance and adds it to the given component container.
+            </summary>
+            <param name="container">Component container for the new PhidgetManager component instance.</param>
+        </member>
+        <member name="M:GroupLab.Phidgets.PhidgetManager.Dispose(System.Boolean)">
+            <summary>
+            Overrides <see cref="M:System.ComponentModel.Component.Dispose"/>.
+            </summary>
+            <param name="disposing">If this value is <c>true</c> the object will release unmanaged resources.</param>
+        </member>
+        <member name="M:GroupLab.Phidgets.PhidgetManager.OnAttach(GroupLab.Phidgets.PhidgetManagerEventArgs)">
+            <summary>
+            Raises the Attach event.
+            </summary>
+            <param name="e">Arguments for the Attach event.</param>
+        </member>
+        <member name="M:GroupLab.Phidgets.PhidgetManager.OnDetach(GroupLab.Phidgets.PhidgetManagerEventArgs)">
+            <summary>
+            Raises the Detach event.
+            </summary>
+            <param name="e">Arguments for the Detach event.</param>
+        </member>
+        <member name="M:GroupLab.Phidgets.PhidgetManager.OnError(GroupLab.Phidgets.PhidgetErrorEventArgs)">
+            <summary>
+            Raises the Error event.
+            </summary>
+            <param name="e">Arguments for the Error event.</param>
+        </member>
+        <member name="M:GroupLab.Phidgets.PhidgetManager.GetEnumerator">
+            <summary>
+            Returns an enumerator that can iterate through the collection of attached phidget devices.
+            </summary>
+            <returns>Returns an <see cref="T:System.Collections.IEnumerator"/> enumerator that can iterate through the collection.</returns>
+        </member>
+        <member name="E:GroupLab.Phidgets.PhidgetManager.Attach">
+            <summary>
+            Occurs when a phidget device is attached to this computer.
+            </summary>
+        </member>
+        <member name="E:GroupLab.Phidgets.PhidgetManager.Detach">
+            <summary>
+            Occurs when a phidget device is detached from this computer.
+            </summary>
+        </member>
+        <member name="E:GroupLab.Phidgets.PhidgetManager.Error">
+            <summary>
+            Occurs when the Phidget Manager is unable to communicate with the Phidget.  This error is used when a call fails unexpected, typically when a device is detached but the OnDetach event has not yet been fired. 
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.PhidgetManager.Enabled">
+            <summary>
+            Gets/sets a value that determines whether the current phidget manager is actively tracking phidget device connection and removal.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.IntegerCollection">
+            <summary>
+            IntegerCollection Class, created so we may use the <see cref="T:System.ComponentModel.Design.CollectionEditor"/> in design view for editing our filterSerialNumbers Integer collections on our Phidgets.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.IntegerCollection.Add(System.Int32)">
+            <summary>
+            Adds a integer to the IntegerCollection
+            </summary>
+            <param name="item">The item to add to the IntegerCollection</param>
+            <returns>The position into which the new element was inserted.</returns>
+        </member>
+        <member name="P:GroupLab.Phidgets.IntegerCollection.Item(System.Int32)">
+            <summary>
+            Gets/sets a particular value in the IntegerCollection
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.PhidgetManagerEventArgs">
+            <summary>
+            Provides a reference to a phidget device that has been attached or detached.
+            </summary>
+        </member>
+        <member name="F:GroupLab.Phidgets.PhidgetManagerEventArgs.PhidgetDevice">
+            <summary>
+            Gets a reference to the phidget device that has been attached or detached.
+            </summary>
+        </member>
+        <member name="F:GroupLab.Phidgets.PhidgetManagerEventArgs.Attached">
+            <summary>
+            Gets/sets a flag used by phidget components that automatically attach to the first appropriate phidget device.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.PhidgetManagerEventArgs.#ctor(GroupLab.Phidgets.PhidgetDevice)">
+            <summary>
+            Initializes this object with a phidget device reference.
+            </summary>
+            <param name="phidgetDevice">Phidget device reference.</param>
+        </member>
+        <member name="T:GroupLab.Phidgets.PhidgetManagerEventHandler">
+            <summary>
+            Represents the method that can handle a phidget manager device attach/detach event.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.PhidgetManagerSkin">
+            <summary>
+            Summary description for PhidgetManagerSkin.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.PhidgetManagerSkin.#ctor">
+            <summary>
+             Phidget Manager Skin Constructor
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.PhidgetManagerSkin.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.PhidgetManagerSkin.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.RFID">
+            <summary>
+            GroupLab.Phidgets.RFID reads RFID tags, a technology commonly used for security and location tracking.
+            </summary>
+        </member>
+        <member name="F:GroupLab.Phidgets.RFID.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.RFID.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Initializes this RFID component and adds it to the given container
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="M:GroupLab.Phidgets.RFID.#ctor">
+            <summary>
+            Initializes this RFID 
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.RFID.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.RFID.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.RFID.GetSkinType">
+            <summary>
+            Implements <see cref="M:GroupLab.Phidgets.IPhidgetComponent.GetSkinType"/>
+            </summary>
+            <returns>Type of RFID Skin.</returns>
+        </member>
+        <member name="M:GroupLab.Phidgets.RFID.OnAttach(System.EventArgs)">
+            <summary>
+            Raises the Attach event.
+            </summary>
+            <param name="e">Arguments for the Attach event.</param>
+        </member>
+        <member name="M:GroupLab.Phidgets.RFID.OnDetach(System.EventArgs)">
+            <summary>
+            Raises the Detach event.
+            </summary>
+            <param name="e">Arguments for the Detach event.</param>
+        </member>
+        <member name="M:GroupLab.Phidgets.RFID.OnTag(GroupLab.Phidgets.RFIDTagEventArgs)">
+            <summary>
+            Raises the Tag event.
+            </summary>
+            <param name="e">Arguments for the Tag event.</param>
+        </member>
+        <member name="M:GroupLab.Phidgets.RFID.OnError(GroupLab.Phidgets.PhidgetErrorEventArgs)">
+            <summary>
+            Raises the <see cref="E:GroupLab.Phidgets.InterfaceKit.Error"/> event.
+            </summary>
+            <param name="e">Arguments for the event.</param>
+        </member>
+        <member name="P:GroupLab.Phidgets.RFID.PhidgetDevice">
+            <summary>
+            Gets/sets the wrapped phidget device.
+            </summary>
+            <remarks>The phidget device kind must be <c>phidgetrfid</c>.</remarks>
+        </member>
+        <member name="P:GroupLab.Phidgets.RFID.Attached">
+            <summary>
+            Gets a flag that when true indicates this phidget component has been associated with an underlying phidget device and that the device is attached to this computer.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.RFID.AutoAttach">
+            <summary>
+            Gets/sets a flag that determines whether the current rfid component should automatically attach to an appropriate phidget device.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.RFID.FilterSerialNumbers">
+            <summary>
+            Gets/sets the device serial numbers that are accepted by this rfid component.  If this list is empty the rfid component will accept all device serial numbers.
+            </summary>
+        </member>
+        <member name="E:GroupLab.Phidgets.RFID.Attach">
+            <summary>
+            Occurs when this component has been associated with a phidget device.
+            </summary>
+        </member>
+        <member name="E:GroupLab.Phidgets.RFID.Detach">
+            <summary>
+            Occurs when the phidget device associated with this component has been detached from this computer.
+            </summary>
+        </member>
+        <member name="E:GroupLab.Phidgets.RFID.Tag">
+            <summary>
+            Occurs when a valid tag is read by a reader.  
+            </summary>
+        </member>
+        <member name="E:GroupLab.Phidgets.RFID.Error">
+            <summary>
+            Occurs when there is a USB protocol error communicating with the phidget device.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.RFIDSkin">
+            <summary>
+            Provides a visual representation for RFID phidgets.
+            </summary>
+        </member>
+        <member name="F:GroupLab.Phidgets.RFIDSkin.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.RFIDSkin.#ctor">
+            <summary>
+            Initializes an unattached RFID phidget skin.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.RFIDSkin.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.RFIDSkin.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.RFIDSkin.PhidgetComponent">
+            <summary>
+            Implements <see cref="P:GroupLab.Phidgets.IPhidgetComponentSkin.PhidgetComponent"/>
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.RFIDSkin.RFID">
+            <summary>
+            Gets/sets the rfid phidget component to skin.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.RFIDTagEventArgs">
+            <summary>
+            Provides data associated with an RFID Tag event.
+            </summary>
+        </member>
+        <member name="F:GroupLab.Phidgets.RFIDTagEventArgs.Tag">
+            <summary>
+            Tag is the unique ID read from the RFID tag
+            </summary>
+        </member>
+        <member name="F:GroupLab.Phidgets.RFIDTagEventArgs.Index">
+            <summary>
+            Index indicates which reader recognized the tag
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.RFIDTagEventArgs.#ctor(System.Int32,System.String)">
+            <summary>
+            Initializes this object with the field values thisIndex and thisTag.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.RFIDTagEventHandler">
+            <summary>
+            Represents a method that can handle events raised by an RFID phidget.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.Servo">
+            <summary>
+            GroupLab.Phidgets.Servo lets a programmer control one or more servo motors. The programmer can independently rotate each servo motor between 0 to 180 degrees. 
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Servo.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Initializes this Servo component and adds it to the given component container.
+            </summary>
+            <param name="container">Component container for this Servo</param>
+        </member>
+        <member name="M:GroupLab.Phidgets.Servo.#ctor">
+            <summary>
+            Initializes this Servo component.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Servo.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.Servo.GetSkinType">
+            <summary>
+            Implements <see cref="M:GroupLab.Phidgets.IPhidgetComponent.GetSkinType"/>
+            </summary>
+            <returns>Type of ServoSkin.</returns>
+        </member>
+        <member name="M:GroupLab.Phidgets.Servo.OnAttach(System.EventArgs)">
+            <summary>
+            Raises the Attach event.
+            </summary>
+            <param name="e">Arguments for the Attach event.</param>
+        </member>
+        <member name="M:GroupLab.Phidgets.Servo.OnDetach(System.EventArgs)">
+            <summary>
+            Raises the Detach event.
+            </summary>
+            <param name="e">Arguments for the Detach event.</param>
+        </member>
+        <member name="M:GroupLab.Phidgets.Servo.OnPositionChanged(GroupLab.Phidgets.ServoEventArgs)">
+            <summary>
+            Raises the InputChange event.
+            </summary>
+            <param name="e">Arguments for the InputChange event.</param>
+        </member>
+        <member name="M:GroupLab.Phidgets.Servo.OnError(GroupLab.Phidgets.PhidgetErrorEventArgs)">
+            <summary>
+            Raises the <see cref="E:GroupLab.Phidgets.InterfaceKit.Error"/> event.
+            </summary>
+            <param name="e">Arguments for the event.</param>
+        </member>
+        <member name="P:GroupLab.Phidgets.Servo.PhidgetDevice">
+            <summary>
+            Gets/sets the wrapped phidget device.
+            </summary>
+            <remarks>The phidget device kind must be <c>phidgetservo</c>.</remarks>
+        </member>
+        <member name="P:GroupLab.Phidgets.Servo.Attached">
+            <summary>
+            Gets a flag that when true indicates this phidget component has been associated with an underlying phidget device and that the device is attached to this computer.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.Servo.Motors">
+            <summary>
+            Gets the collection of <see cref="T:GroupLab.Phidgets.Servo.Motor"/>'s available on this phidget servo.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.Servo.AutoAttach">
+            <summary>
+            Gets/sets a flag that determines whether the current servo component should automatically attach to an appropriate phidget device.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.Servo.FilterSerialNumbers">
+            <summary>
+            Gets/sets the device serial numbers that are accepted by this servo component.  If this list is empty the servo component will accept all device serial numbers.
+            </summary>
+        </member>
+        <member name="E:GroupLab.Phidgets.Servo.Attach">
+            <summary>
+            Occurs when this component has been associated with a phidget device.
+            </summary>
+        </member>
+        <member name="E:GroupLab.Phidgets.Servo.Detach">
+            <summary>
+            Occurs when the phidget device associated with this component has been detached from this computer.
+            </summary>
+        </member>
+        <member name="E:GroupLab.Phidgets.Servo.PositionChanged">
+            <summary>
+            Occurs when the servo motor is changing its position.  
+            Note: This even is raised as a side effect of programmatically setting the MotorPosition property i.e., it is the final resting position requested. Thus it may not match the actual current position of the actual motor (e.g., because of cascading requests as described in the MotorPosition property, or because the motor is still turning).
+            </summary>
+        </member>
+        <member name="E:GroupLab.Phidgets.Servo.Error">
+            <summary>
+            Occurs when there is a USB protocol error communicating with the phidget device.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.Servo.Motor">
+            <summary>
+            Represents a digital output on an interface kit.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.Servo.Motor.Index">
+            <summary>
+            Gets the index of this motor.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.Servo.Motor.Position">
+            <summary>
+            Gets/sets the state of this motor.  This value may range from 0 - 180, corresponding to degrees from the farthest counter-clockwise position.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.Servo.MotorCollection">
+            <summary>
+            Represents a collection of digital outputs.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.Servo.MotorCollection.Item(System.Int32)">
+            <summary>
+            Gets a motor.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.ServoEventArgs">
+            <summary>
+            Provides data associated with a servo phidget event.
+            </summary>
+        </member>
+        <member name="F:GroupLab.Phidgets.ServoEventArgs.Index">
+            <summary>
+            The servo motor that raised the event.
+            </summary>
+        </member>
+        <member name="F:GroupLab.Phidgets.ServoEventArgs.Position">
+            <summary>
+            The final resting position of the motor requested by changing a Motor property.  This field's value is valid only for the <see cref="M:GroupLab.Phidgets.Servo.OnPositionChanged(GroupLab.Phidgets.ServoEventArgs)"/> event.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.ServoEventArgs.#ctor">
+            <summary>
+            Initializes this object with empty field values.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.ServoEventHandler">
+            <summary>
+            Represents a method that can handle events raised by a servo phidget.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.ServoSkin">
+            <summary>
+            Provides a visual representation for interface kit phidgets.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.ServoSkin.#ctor">
+            <summary>
+            Initializes an unattached interface kit phidget skin.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.ServoSkin.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.ServoSkin.PhidgetComponent">
+            <summary>
+            Implements <see cref="P:GroupLab.Phidgets.IPhidgetComponentSkin.PhidgetComponent"/>
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.ServoSkin.Servo">
+            <summary>
+            Gets/sets the servo phidget component to skin.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.TextLCD">
+            <summary>
+            GroupLab.Phidgets.TextLCD outputs Text to a screen similar to those used in cellphones
+            </summary>
+        </member>
+        <member name="F:GroupLab.Phidgets.TextLCD.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.TextLCD.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Initializes this TextLCD component and adds it to the given container
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="M:GroupLab.Phidgets.TextLCD.#ctor">
+            <summary>
+            Initializes this TextLCD 
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.TextLCD.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.TextLCD.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.TextLCD.GetSkinType">
+            <summary>
+            Implements <see cref="M:GroupLab.Phidgets.IPhidgetComponent.GetSkinType"/>
+            </summary>
+            <returns>Type of TextLCD Skin.</returns>
+        </member>
+        <member name="M:GroupLab.Phidgets.TextLCD.OnAttach(System.EventArgs)">
+            <summary>
+            Raises the Attach event.
+            </summary>
+            <param name="e">Arguments for the Attach event.</param>
+        </member>
+        <member name="M:GroupLab.Phidgets.TextLCD.OnDetach(System.EventArgs)">
+            <summary>
+            Raises the Detach event.
+            </summary>
+            <param name="e">Arguments for the Detach event.</param>
+        </member>
+        <member name="M:GroupLab.Phidgets.TextLCD.OnError(GroupLab.Phidgets.PhidgetErrorEventArgs)">
+            <summary>
+            Raises the <see cref="E:GroupLab.Phidgets.InterfaceKit.Error"/> event.
+            </summary>
+            <param name="e">Arguments for the event.</param>
+        </member>
+        <member name="P:GroupLab.Phidgets.TextLCD.PhidgetDevice">
+            <summary>
+            Gets/sets the wrapped phidget device.
+            </summary>
+            <remarks>The phidget device kind must be <c>phidgettextlcd</c>.</remarks>
+        </member>
+        <member name="P:GroupLab.Phidgets.TextLCD.Attached">
+            <summary>
+            Gets a flag that when true indicates this phidget component has been associated with an underlying phidget device and that the device is attached to this computer.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.TextLCD.AutoAttach">
+            <summary>
+            Gets/sets a flag that determines whether the current textlcd component should automatically attach to an appropriate phidget device.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.TextLCD.FilterSerialNumbers">
+            <summary>
+            Gets/sets the device serial numbers that are accepted by this textlcd component.  If this list is empty the textlcd component will accept all device serial numbers.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.TextLCD.Backlight">
+            <summary>
+            Gets/sets whether or not the backlight is on.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.TextLCD.CursorBlink">
+            <summary>
+            Gets/sets whether or not the cursor blinking is on.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.TextLCD.NumRows">
+            <summary>
+            Gets the number of rows for the text lcd display
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.TextLCD.NumColumns">
+            <summary>
+            Gets the number of columns for the text lcd display
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.TextLCD.Display">
+            <summary>
+            Gets/sets the string displayed on the TextLCD.  Note if the string is too large it will be truncated.
+            </summary>
+        </member>
+        <member name="E:GroupLab.Phidgets.TextLCD.Attach">
+            <summary>
+            Occurs when this component has been associated with a phidget device.
+            </summary>
+        </member>
+        <member name="E:GroupLab.Phidgets.TextLCD.Detach">
+            <summary>
+            Occurs when the phidget device associated with this component has been detached from this computer.
+            </summary>
+        </member>
+        <member name="E:GroupLab.Phidgets.TextLCD.Error">
+            <summary>
+            Occurs when there is a USB protocol error communicating with the phidget device.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.TextLCDEventArgs">
+            <summary>
+            Provides data associated with an TextLCD Tag event.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.TextLCDEventHandler">
+            <summary>
+            Represents a method that can handle events raised by an TextLCD phidget.
+            </summary>
+        </member>
+        <member name="T:GroupLab.Phidgets.TextLCDSkin">
+            <summary>
+            Provides a visual representation for TextLCD phidgets.
+            </summary>
+        </member>
+        <member name="F:GroupLab.Phidgets.TextLCDSkin.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.TextLCDSkin.#ctor">
+            <summary>
+            Initializes an unattached TextLCD phidget skin.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.TextLCDSkin.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:GroupLab.Phidgets.TextLCDSkin.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.TextLCDSkin.PhidgetComponent">
+            <summary>
+            Implements <see cref="P:GroupLab.Phidgets.IPhidgetComponentSkin.PhidgetComponent"/>
+            </summary>
+        </member>
+        <member name="P:GroupLab.Phidgets.TextLCDSkin.TextLCD">
+            <summary>
+            Gets/sets the textlcd phidget component to skin.
+            </summary>
+        </member>
+    </members>
+</doc>
